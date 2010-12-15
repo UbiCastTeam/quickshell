@@ -50,7 +50,7 @@ class SimpleLauncher:
 
         content = urwid.SimpleListWalker([urwid.AttrMap(w, None, 'reveal focus') for w in items])
         listbox = urwid.ListBox(content)
-        self.header = show_key = urwid.Text("QuickSys command launcher", wrap='clip')
+        self.header = show_key = urwid.Text("QuickShell command launcher", wrap='clip')
         head = urwid.AttrMap(show_key, 'header')
         self.top = urwid.Frame(listbox, head)
 
@@ -86,6 +86,7 @@ class SimpleLauncher:
 
     def exit_on_cr(self, input):
         if input == 'q':
+            self.run_command('clear')
             raise urwid.ExitMainLoop()
         else:
             entry = commands.get_by_key(input)
