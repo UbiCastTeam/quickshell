@@ -2,31 +2,17 @@
 # -*- coding: utf-8 -*-
 # Copyright 2010, Florent Thiery, UbiCast
 
-import os, sys, socket
+import os, sys
 import urwid
-from easycast_utils.patterns import DictList
 
-#TODO: 
-
-default_network = 'eth1'
 debug = True
 debug = False
 
-commands = DictList((
-    {'title': 'System Monitoring', 'category': True},
-    {'title': 'cpu & mem usage (htop)', 'cmd': 'htop', 'key': 'h'},
-    {'title': 'disk activity usage (iotop)', 'cmd': 'iotop', 'key': 'i'},
-    {'title': 'network usage (nettop)', 'cmd': 'sudo jnettop -i %s' %default_network, 'key': 'n'},    
-    {'title': 'network sniffing (tcpdump)', 'cmd': 'sudo tcpdump not host %s -i %s -vvv -A' %(socket.gethostname(),default_network)},    
-    {'title': 'Log viewing', 'category': True},
-    {'title': '/var/log/messages', 'cmd': 'sudo tail -f /var/log/messages', 'key': 'm'},
-    {'title': '/var/log/auth', 'cmd': 'sudo tail -f /var/log/auth', 'key': 'a'},
-    {'title': 'Quit', 'cb': sys.exit, 'category': True, 'key': 'q'},
-           ))
+from plugin import get_commands
+commands = get_commands()
 
 palette = [('header', 'white', 'black'),
     ('reveal focus', 'black', 'dark cyan', 'standout'),]
-
 
 class SimpleLauncher:
     '''
