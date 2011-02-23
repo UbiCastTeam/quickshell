@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Copyright 2010, Florent Thiery, UbiCast
+# Copyright 2010, Florent Thiery 
 
 import socket
 
-default_network = 'eth1'
+default_network = 'eth0'
 commands = (
     {'title': 'System Monitoring', 'category': True},
     {'title': 'cpu & mem usage (htop)', 'cmd': 'htop', 'key': 'h'},

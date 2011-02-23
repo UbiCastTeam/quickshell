@@ -1,5 +1,5 @@
 import imp, os, sys
-from easycast_utils.patterns import DictList
+from patterns import DictList
 
 def get_commands():
     commands = DictList()
