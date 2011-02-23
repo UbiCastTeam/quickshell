@@ -1,0 +1,12 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# Copyright 2011, Florent Thiery 
+
+if __name__ == '__main__':
+    from quickshell.quickshell import SimpleLauncher
+
+    l = SimpleLauncher()
+    try:
+        l.run()
+    except Exception, e:
+        l.debug('Error: %s' %e)

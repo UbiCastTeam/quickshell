@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Copyright 2010, Florent Thiery, UbiCast
+# Copyright 2010, Florent Thiery 
 
 import os, sys
 import urwid
