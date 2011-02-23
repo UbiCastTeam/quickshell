@@ -3,7 +3,7 @@
 
 import sys
 from distutils.core import setup
-from sudoers import VERSION
+from quickshell import VERSION
 
 if 'install' in sys.argv:
     install_scripts = False
