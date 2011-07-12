@@ -3,7 +3,7 @@
 # Copyright 2010, Florent Thiery 
 
 import os, sys
-import urwid
+import urwid 
 
 debug = True
 debug = False
@@ -63,6 +63,8 @@ class SimpleLauncher:
             fname.close()
             if error != '':
                 self.header.set_text('QuickShell command launcher || Error: %s' %(error))
+            else:
+                self.header.set_text('QuickShell command launcher')
         else:
             self.header.set_text('QuickShell command launcher')
 
