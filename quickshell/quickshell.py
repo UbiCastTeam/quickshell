@@ -36,7 +36,7 @@ class SimpleLauncher:
 
         content = urwid.SimpleListWalker([urwid.AttrMap(w, None, 'reveal focus') for w in items])
         listbox = urwid.ListBox(content)
-        self.header = show_key = urwid.Text("QuickShell command launcher", wrap='clip')
+        self.header = show_key = urwid.Text("QuickShell command launcher", wrap='space')
         head = urwid.AttrMap(show_key, 'header')
         self.top = urwid.Frame(listbox, head)
 
@@ -56,7 +56,15 @@ class SimpleLauncher:
 
     def run_command(self, command):
         os.system('clear')
-        os.system(command)
+        status = os.system('%s 2> /tmp/quickshell.log' %command)
+        if status != 0:
+            fname = open('/tmp/quickshell.log')
+            error = str(fname.read().strip())
+            fname.close()
+            if error != '':
+                self.header.set_text('QuickShell command launcher || Error: %s' %(error))
+        else:
+            self.header.set_text('QuickShell command launcher')
 
     def run(self):
         if debug:
