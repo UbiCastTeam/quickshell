@@ -1,0 +1,1 @@
+QuickShell is a simple command launcher.
